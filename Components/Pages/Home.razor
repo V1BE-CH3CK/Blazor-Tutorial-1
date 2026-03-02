@@ -1,0 +1,41 @@
+﻿@page "/"
+@using System.Security.Cryptography.X509Certificates
+@using System.Reflection.Emit
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+
+<p>Random Increment Amount: @amount </p>
+<Counter IncrementAmount="amount" />
+<button class="btn btn-primary" @onclick="TodaysDate">What's Today?</button>
+<p>
+    @if (!btnClick){
+        <label>Who Cares?</label>
+    }
+    @if (btnClick){
+        <label>@date</label>
+    }
+</p>
+
+@code {
+    int amount = RandomNum();
+    bool btnClick = false;
+    string date = DateTime.Today.ToString("MM/dd/yyyy");
+
+    public static int RandomNum()
+    {
+        Random rng = new Random();
+        int rn = rng.Next(1, 11);
+        return rn;
+    }
+
+    public void TodaysDate()
+    {
+        btnClick = !btnClick;
+    }
+}
