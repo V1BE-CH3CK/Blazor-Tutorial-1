@@ -83,3 +83,4 @@ C:\Users\bs1106681\Desktop\Brock S. Capstone Projects\Blazor Projects\Blazor Tut
 C:\Users\bs1106681\Desktop\Brock S. Capstone Projects\Blazor Projects\Blazor Tutorial 1\Blazor Tutorial 1\obj\Debug\net10.0\Blazor_Tutorial_1.pdb
 C:\Users\bs1106681\Desktop\Brock S. Capstone Projects\Blazor Projects\Blazor Tutorial 1\Blazor Tutorial 1\obj\Debug\net10.0\Blazor Tutorial 1.genruntimeconfig.cache
 C:\Users\bs1106681\Desktop\Brock S. Capstone Projects\Blazor Projects\Blazor Tutorial 1\Blazor Tutorial 1\obj\Debug\net10.0\ref\Blazor_Tutorial_1.dll
+C:\Users\bs1106681\Desktop\Brock S. Capstone Projects\Blazor Projects\Blazor Tutorial 1\Blazor Tutorial 1\obj\Debug\net10.0\Blazor Tutorial 1.sourcelink.json

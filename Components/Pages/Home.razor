@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using System.Security.Cryptography.X509Certificates
 @using System.Reflection.Emit
+@using System.Globalization
 @rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
@@ -12,6 +13,7 @@ Welcome to your new app.
 
 <p>Random Increment Amount: @amount </p>
 <Counter IncrementAmount="amount" />
+
 <button class="btn btn-primary" @onclick="TodaysDate">What's Today?</button>
 <p>
     @if (!btnClick){
@@ -22,10 +24,45 @@ Welcome to your new app.
     }
 </p>
 
+<h1>Alphabet Subset</h1>
+<button class="btn btn-primary" @onclick="AlphabetButton">Alphabet</button>
+<ol>
+    @for (int i = 0; i < alphabetCount; i++){
+        <li>@alphabet[i]</li>
+    }
+</ol>
+
+<h1>Random Number List</h1>
+@if (numbers == null){
+    <p><em>Loading List...</em></p>
+}
+else{
+    <table>
+        <tbody>
+            @foreach (int number in numbers){
+                @if (number > 0){
+                    <tr>@number</tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+
+
 @code {
     int amount = RandomNum();
     bool btnClick = false;
     string date = DateTime.Today.ToString("MM/dd/yyyy");
+
+    string[] alphabet = [
+    "a","b","c","d","e","f","g","h",
+    "i","j","k","l","m","n","o","p",
+    "q","r","s","t","u","v","w","x",
+    "y","z"
+    ];
+    int alphabetCount = 0;
+
+    int[]? numbers = new int[10];
 
     public static int RandomNum()
     {
@@ -37,5 +74,20 @@ Welcome to your new app.
     public void TodaysDate()
     {
         btnClick = !btnClick;
+    }
+
+    public void AlphabetButton()
+    {
+        Random rng = new Random();
+        alphabetCount = rng.Next(1,27);
+    }
+
+    protected override void OnInitialized()
+    {
+        Random rng = new Random();
+        int count = rng.Next(1,11);
+        for (int i = 0; i < count; i++){
+            numbers[i] = rng.Next(1,50);
+        }
     }
 }
