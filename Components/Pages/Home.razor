@@ -1,4 +1,5 @@
 ﻿@page "/"
+@page "/NLCount/{numCount:int?}"
 @using System.Security.Cryptography.X509Certificates
 @using System.Reflection.Emit
 @using System.Globalization
@@ -50,6 +51,7 @@ else{
 
 
 @code {
+    Random rng = new Random();
     int amount = RandomNum();
     bool btnClick = false;
     string date = DateTime.Today.ToString("MM/dd/yyyy");
@@ -63,6 +65,7 @@ else{
     int alphabetCount = 0;
 
     int[]? numbers = new int[10];
+    [Parameter] public int numCount {get; set;}
 
     public static int RandomNum()
     {
@@ -86,6 +89,9 @@ else{
     {
         Random rng = new Random();
         int count = rng.Next(1,11);
+        if (numCount > 0){
+            count = numCount;
+        }
         for (int i = 0; i < count; i++){
             numbers[i] = rng.Next(1,50);
         }
